@@ -9,7 +9,7 @@ const View = () => {
   useEffect(() => {
     const fetchdata = async () => {
       try {
-        const res = await axios.get("http://localhost:5050/getdata");
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/getdata`);
         setData(res.data);
       } catch (err) {
         alert("Problem fetching data");
@@ -27,7 +27,7 @@ const View = () => {
         {data.length > 0 ? data.map((item, idx) => (
           <div onClick={()=>{navigate(`/item/${item._id}`)}} key={idx} className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition">
             <img
-              src={`http://localhost:5050${item.coverPath}`}
+              src={`${import.meta.env.VITE_API_URL}${item.coverPath}`}
               alt={item.name}
               className="w-full h-40 object-cover rounded-md mb-4"
             />
