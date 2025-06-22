@@ -11,7 +11,7 @@ const ItemDetails = () => {
   useEffect(() => {
     const fetchItem = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_API_URL}${item.imagePaths[currentImage]}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/item/${id}`);
         setItem(res.data);
       } catch (err) {
         alert("Item not found");
@@ -42,7 +42,7 @@ const ItemDetails = () => {
       {/* Image Carousel */}
       <div className="relative w-full h-72 border rounded overflow-hidden mb-4">
         <img
-          src={`http://localhost:5050${item.imagePaths[currentImage]}`}
+          src={`${import.meta.env.VITE_API_URL}${item.imagePaths[currentImage]}`}
           alt="item"
           className="w-full h-full object-cover"
         />
