@@ -20,7 +20,7 @@ export default function Additem() {
 
     async function fetchdata() {
       try {
-        const response = await axios.post("http://localhost:5050/additem", formdata);
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/additem`, formdata);
         console.log(response.data);
         setSuccess("✅ Item successfully added!");
       } catch (err) {
