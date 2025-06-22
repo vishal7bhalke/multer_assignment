@@ -11,7 +11,7 @@ const ItemDetails = () => {
   useEffect(() => {
     const fetchItem = async () => {
       try {
-        const res = await axios.get(`http://localhost:5050/item/${id}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}${item.imagePaths[currentImage]}`);
         setItem(res.data);
       } catch (err) {
         alert("Item not found");
